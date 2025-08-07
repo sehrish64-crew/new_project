@@ -72,7 +72,7 @@
     "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.7.0",
-    "react-date-range": "^2.0.1",
+    "react-date-range": "^1.4.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
