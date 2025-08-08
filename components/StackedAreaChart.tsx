@@ -51,8 +51,16 @@ const StackedAreaChart: React.FC = () => {
       height: 350,
       stacked: true,
       events: {
-        selection: function (chart, e) {
-          console.log(new Date(e.xaxis.min))
+        selection: function (
+          chart: ApexCharts,
+          e: {
+            xaxis: {
+              min: number;
+              max: number;
+            };
+          }
+        ) {
+          console.log(new Date(e.xaxis.min));
         }
       },
     },
