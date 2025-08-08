@@ -10,7 +10,7 @@ interface AppointmentPickerProps {
 
 export default function AppointmentPicker({ slotsByDate }: AppointmentPickerProps) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
- const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
   const renderHeader = () => (
@@ -90,13 +90,13 @@ export default function AppointmentPicker({ slotsByDate }: AppointmentPickerProp
     const dateStr = format(selectedDate, "yyyy-MM-dd");
     const slots = slotsByDate[dateStr] || [];
 
-   if (slots.length === 0) {
-  return (
-    <div className="mt-4 text-sm text-gray-500">
-      No slots available for this date.
-    </div>
-  );
-}
+    if (slots.length === 0) {
+      return (
+        <div className="mt-4 text-sm text-gray-500">
+          No slots available for this date.
+        </div>
+      );
+    }
 
     return (
       <div className="mt-4">
@@ -108,8 +108,8 @@ export default function AppointmentPicker({ slotsByDate }: AppointmentPickerProp
             <button
               key={time}
               onClick={() => setSelectedTime(time)}
-              className={`border rounded px-2 py-1 text-sm
-                ${selectedTime === time ? "bg-teal-700 text-white" : "hover:bg-gray-100"}
+              className={`border rounded px-2 py-1 text-sm bg-[#fff]
+                ${selectedTime === time ? "bg-[#fff] text-[#000]" : "hover:bg-[#CEE5E4]"}
               `}
             >
               {time}
@@ -122,12 +122,12 @@ export default function AppointmentPicker({ slotsByDate }: AppointmentPickerProp
 
   return (
     <div className="flex gap-6">
-      <div className="p-4">
+      <div className="p-4" style={{ width: '100%' }}>
         {renderHeader()}
         {renderDays()}
         {renderCells()}
       </div>
-      <div className="p-4 border rounded bg-gray-50 min-w-[200px]">
+      <div className="p-4 border rounded bg-[#F9FAFB]" style={{ width: '100%' }}>
         {renderTimeSlots()}
       </div>
     </div>

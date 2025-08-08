@@ -3,6 +3,15 @@
 import { Search, Plus } from "lucide-react";
 import { Listbox } from "@headlessui/react";
 import { ChevronDownIcon, CheckIcon } from "@heroicons/react/20/solid";
+import dynamic from 'next/dynamic';
+
+const Apex = dynamic(() => import('../components/Apexchart'), {
+  ssr: false, 
+});
+const StackedAreaChart = dynamic(() => import('../components/StackedAreaChart'), {
+  ssr: false, 
+});
+
 interface Doctor {
     id: string;
     fullName: string;
@@ -25,6 +34,7 @@ import {
 import DateCom from "../components/Datepicker";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import Apex from "../components/Apexchart";
 import { useForm } from "react-hook-form";
 // import flatpickr from "flatpickr";
 
@@ -213,9 +223,8 @@ export default function Patient() {
     const [selectedUser, setSelectedUser] = useState(userList[0]);
     const [isRestockModalOpen, setIsRestockModalOpen] = useState(false);
     const [restockModalAnim, setRestockModalAnim] = useState(false);
-    const [activebtn, setactivebtn] = useState("list")
-
-
+    const [activebtn, setactivebtn] = useState("list");
+   
     return (
         <>
             {isOpen && (
@@ -553,10 +562,6 @@ export default function Patient() {
                     </div>
                 </div>
             )}
-
-
-
-
             <div className="flex flex-col h-full lg:rounded-r-lg">
                 {/* Header - Same background as sidebar */}
                 <div className="pb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 flex-shrink-0 lg:rounded-tr-lg">
@@ -655,7 +660,20 @@ export default function Patient() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            {activebtn === "graph" && <div>I am graph view</div>}
+                                            {activebtn === "graph" && <div>
+                                                <div className="flex justify-between gap-3 mt-4">
+                                                    <div className="card" style={{ width: '100%' }}>
+                                                        <div className="card-body">
+                                                            <Apex />
+                                                        </div>
+                                                    </div>
+                                                    <div className="card" style={{ width: '100%' }}>
+                                                        <div className="card-body">
+                                                            <StackedAreaChart />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>}
 
                                             {activebtn === "list" && (
                                                 <div className="flex-1 overflow-auto mt-4">
