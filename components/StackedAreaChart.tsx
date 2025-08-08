@@ -47,22 +47,17 @@ const StackedAreaChart: React.FC = () => {
 
   const options = {
     chart: {
-      type: 'area',
+      type: "area" as ChartType,
       height: 350,
       stacked: true,
       events: {
         selection: function (
-          chart: ApexCharts,
-          e: {
-            xaxis: {
-              min: number;
-              max: number;
-            };
-          }
+          chart: any, // or ApexCharts if imported
+          e: { xaxis: { min: number; max: number } }
         ) {
           console.log(new Date(e.xaxis.min));
         }
-      },
+      }
     },
     colors: ['#144A6C', '#177606', '#EF2D2D'],
     dataLabels: {
@@ -116,7 +111,12 @@ const StackedAreaChart: React.FC = () => {
       <button className='text-[#144A6C]'>
         Sales Vs Expense
       </button>
-      <ReactApexChart options={options} series={series} type="area" height={350} />
+      <ReactApexChart
+        options={options}
+        series={series}
+        type="area"
+        height={350}
+      />
     </div>
   );
 };
