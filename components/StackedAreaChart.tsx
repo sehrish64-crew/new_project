@@ -112,11 +112,11 @@ const StackedAreaChart: React.FC = () => {
         Sales Vs Expense
       </button>
       <ReactApexChart
-  options={options}
-  series={series}
-  type="area"
-  height={350}
-/>
+        options={options}
+        series={series}
+        type="area"
+        height={350}
+      />
     </div>
   );
 };

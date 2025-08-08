@@ -2,6 +2,8 @@
 
 import { Search, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { Listbox } from "@headlessui/react";
+import { ChevronDownIcon, CheckIcon } from "@heroicons/react/20/solid";
 interface Doctor {
   id: string;
   fullName: string;
@@ -19,126 +21,126 @@ import { useForm } from "react-hook-form";
 
 export default function ClinicPage() {
   const doctors: Doctor[] = [
- {
-    id: "738",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "739",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "740",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "741",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "742",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "743",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "744",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "745",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "746",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "747",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "748",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
-  {
-    id: "749",
-    fullName: "Clear Smile Dentistry",
-    specialty: "(415) 555-0187",
-    phone: "info@clearsmile.com",
-    email: "456 Maple Ave, San Francisco, CA 94101",
-    address: "823",
-    appointments: 567,
-    patients: 234,
-  },
+    {
+      id: "738",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "739",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "740",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "741",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "742",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "743",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "744",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "745",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "746",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "747",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "748",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
+    {
+      id: "749",
+      fullName: "Clear Smile Dentistry",
+      specialty: "(415) 555-0187",
+      phone: "info@clearsmile.com",
+      email: "456 Maple Ave, San Francisco, CA 94101",
+      address: "823",
+      appointments: 567,
+      patients: 234,
+    },
   ];
   const [searchTerm, setSearchTerm] = useState("");
   const filteredDoctors = doctors.filter((doctor) =>
@@ -165,11 +167,14 @@ export default function ClinicPage() {
     { id: 2, name: "German" },
     { id: 3, name: "Spanish" },
   ];
+  const treatments = [
+    { id: 1, name: "package 1" },
+    { id: 2, name: "package 2" },
+    { id: 3, name: "package 3" },
+  ];
   const [languageselected, languagesetSelected] = useState(languages[0]);
+  const [selectedTreatment, setSelectedTreatment] = useState(treatments[0]);
 
-  // flatpickr("#datepicker", {
-  //   dateFormat: "Y-m-d", // or any other format
-  // });
 
   return (
     <div className="flex flex-col h-full bg-white lg:rounded-r-lg">
@@ -289,60 +294,131 @@ export default function ClinicPage() {
                             <form className="w-full max-w-4xl mx-auto mt-5">
                               <div className="flex flex-wrap -mx-3 mt-2 mb-4">
                                 <div className="w-full px-3 mb-6 md:mb-0 text-start">
-                                  <label
-                                    className="text-[#757575]"
-                                    htmlFor="grid-address"
-                                  >
+                                  <label className="text-[#757575]" htmlFor="clinic-name">
                                     Name
                                   </label>
                                   <input
                                     className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB]"
-                                    id="grid-address"
+                                    id="clinic-name"
                                     type="text"
                                   />
                                 </div>
                               </div>
+
                               <div className="flex flex-wrap -mx-3 mt-2 mb-4">
                                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
-                                  <label
-                                    className="text-[#757575]"
-                                    htmlFor="grid-address"
-                                  >
+                                  <label className="text-[#757575]" htmlFor="clinic-email">
                                     Email Address
                                   </label>
                                   <input
                                     className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB]"
-                                    id="grid-address"
-                                    type="text"
+                                    id="clinic-email"
+                                    type="email"
                                   />
                                 </div>
 
                                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
-                                  <label
-                                    className="text-[#757575]"
-                                    htmlFor="grid-address"
-                                  >
+                                  <label className="text-[#757575]" htmlFor="clinic-phone">
                                     Phone Number
                                   </label>
                                   <input
                                     className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB]"
-                                    id="grid-address"
-                                    type="number"
+                                    id="clinic-phone"
+                                    type="tel"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                                <div className="w-full px-3 mb-6 md:mb-0 text-start">
+                                  <label className="text-[#757575]" htmlFor="clinic-address">
+                                    Address
+                                  </label>
+                                  <input
+                                    className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB]"
+                                    id="clinic-address"
+                                    type="text"
                                   />
                                 </div>
                               </div>
                               <div className="flex flex-wrap -mx-3 mt-2 mb-4">
                                 <div className="w-full px-3 mb-6 md:mb-0 text-start">
-                                  <label
-                                    className="text-[#757575]"
-                                    htmlFor="grid-address"
+                                  <label className="text-[#757575]" htmlFor="clinic-address">
+                                    Package
+                                  </label>
+                                  <Listbox
+                                    value={selectedTreatment}
+                                    onChange={
+                                      setSelectedTreatment
+                                    }
                                   >
-                                    Address
+                                    <div className="mt-2 relative">
+                                      <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-3 pl-3 pr-10 text-left shadow-sm border border-[#EBEBEB] focus:outline-none focus:ring-1 focus:ring-[#EBEBEB] focus:border-[#EBEBEB] sm:text-sm">
+                                        <span className="block truncate">
+                                          {selectedTreatment.name}
+                                        </span>
+                                        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                          <ChevronDownIcon
+                                            className="h-5 w-5 text-[#144A6C]"
+                                            aria-hidden="true"
+                                          />
+                                        </span>
+                                      </Listbox.Button>
+
+                                      <Listbox.Options className="absolute z-10 mt-1 max-h-40 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                        {treatments.map(
+                                          (treatment) => (
+                                            <Listbox.Option
+                                              key={treatment.id}
+                                              value={treatment}
+                                              className={({
+                                                active,
+                                              }) =>
+                                                `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                                  ? "bg-[#144A6C] text-white"
+                                                  : "text-gray-900"
+                                                }`
+                                              }
+                                            >
+                                              {({ selected }) => (
+                                                <>
+                                                  <span
+                                                    className={`block truncate ${selected
+                                                      ? "font-medium"
+                                                      : "font-normal"
+                                                      }`}
+                                                  >
+                                                    {
+                                                      treatment.name
+                                                    }
+                                                  </span>
+                                                  {selected && (
+                                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-indigo-600">
+                                                      <CheckIcon
+                                                        className="h-5 w-5"
+                                                        aria-hidden="true"
+                                                      />
+                                                    </span>
+                                                  )}
+                                                </>
+                                              )}
+                                            </Listbox.Option>
+                                          )
+                                        )}
+                                      </Listbox.Options>
+                                    </div>
+                                  </Listbox>
+                                </div>
+                              </div>
+                              <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                                <div className="w-full px-3 mb-6 md:mb-0 text-start">
+                                  <label className="text-[#757575]" htmlFor="clinic-address">
+                                    Date
                                   </label>
                                   <input
                                     className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB]"
-                                    id="grid-address"
-                                    type="text"
+                                    id="clinic-address"
+                                    type="date"
                                   />
                                 </div>
                               </div>
@@ -438,7 +514,7 @@ export default function ClinicPage() {
                   <tbody className="bg-white divide-y divide-[#EAECF0]">
                     {filteredDoctors.length === 0 ? (
                       <tr>
-                        <td className="text-center py-8 text-gray-400 text-sm col-span-4"  onClick={() => router.push("/ClinicProfile")}>
+                        <td className="text-center py-8 text-gray-400 text-sm col-span-4" onClick={() => router.push("/ClinicProfile")}>
                           <div className="flex flex-col items-center justify-center">
                             <svg
                               className="w-10 h-10 text-gray-300 mb-2"
