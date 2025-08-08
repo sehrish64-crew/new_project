@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { Search, Plus } from "lucide-react";
 import { Listbox } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import { format } from "date-fns";
 const filteredDoctors = [
   {
     id: "D001",
@@ -35,6 +36,23 @@ const filteredDoctors = [
   },
 
 ];
+ const today = format(new Date(), "yyyy-MM-dd");
+
+  const slotsByDate = {
+    [today]: [
+      "10:30am",
+      "11:30am",
+      "02:30pm",
+      "03:30pm",
+      "04:30pm",
+      "05:30pm"
+    ],
+      "2025-08-10": [
+                          "09:00am",
+                          "10:00am",
+                          "01:00pm"
+                        ],
+  };
 const patients = [
   { id: 1, name: "John Doe" },
   { id: 2, name: "Alexa" },
@@ -809,23 +827,7 @@ export default function DoctorProfileTabs() {
                       <h3 className="text-[#144A6C] font-semibold mb-2">
                         Availability
                       </h3>
-                       <AppointmentPicker
-                      slotsByDate={{
-                        "2025-08-10": [
-                          "10:30am",
-                          "11:30am",
-                          "02:30pm",
-                          "03:30pm",
-                          "04:30pm",
-                          "05:30pm"
-                        ],
-                        "2025-08-11": [
-                          "09:00am",
-                          "10:00am",
-                          "01:00pm"
-                        ],
-                      }}
-                    />
+                        <AppointmentPicker slotsByDate={slotsByDate} />
                       {/* <div className="rounded-xl">
                       <input
                     style={{ width: "100%" }}
