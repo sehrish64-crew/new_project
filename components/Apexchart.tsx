@@ -119,9 +119,17 @@ const ChartTimeline = () => {
     return (
         <div>
             <div className="mb-4 space-x-2">
-                <h3 className='text-[#144A6C]' id="one_month" onClick={(e) => { handleZoom(e); zoomChart('28 Jan 2013', '27 Feb 2013'); }}>
+                <button
+                    className="text-[#144A6C]"
+                    id="one_month"
+                    onClick={(e) => {
+                        handleZoom(e);
+                        zoomChart('28 Jan 2013', '27 Feb 2013');
+                    }}
+                >
                     Total Patients
-                </h3>
+                </button>
+                
             </div>
 
             <div id="chart-timeline" ref={chartRef} />

@@ -306,10 +306,10 @@ export default function Patient() {
                                                 </div>
                                                 <div className="flex flex-col">
                                                     <h3 className="text-lg font-regular text-[#144A6C] text-start">
-                                                        Inventory
+                                                        Update Payment
                                                     </h3>
                                                     <span className="text-[#A1A5AA] font-regular">
-                                                        Provide details to add a new Inventory
+                                                        Provide details to Update Payment
                                                     </span>
                                                 </div>
                                                 <hr />

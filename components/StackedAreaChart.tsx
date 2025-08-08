@@ -20,7 +20,7 @@ const generateDayWiseTimeSeries = (
 
   for (let i = 0; i < count; i++) {
     const x = baseval;
-    
+
     // Add small random delta for smooth change
     const delta = Math.floor(Math.random() * 10 - 5); // small ups and downs
     y += delta;
@@ -46,15 +46,15 @@ const StackedAreaChart: React.FC = () => {
   if (!isClient) return null;
 
   const options = {
-  chart: {
-          type: 'area',
-          height: 350,
-          stacked: true,
-          events: {
-            selection: function (chart, e) {
-              console.log(new Date(e.xaxis.min))
-            }
-          },
+    chart: {
+      type: 'area',
+      height: 350,
+      stacked: true,
+      events: {
+        selection: function (chart, e) {
+          console.log(new Date(e.xaxis.min))
+        }
+      },
     },
     colors: ['#144A6C', '#177606', '#EF2D2D'],
     dataLabels: {
@@ -80,31 +80,34 @@ const StackedAreaChart: React.FC = () => {
   };
 
   const series = [
-  {
-            name: 'South',
-            data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
-              min: 10,
-              max: 60
-            })
-          },
-          {
-            name: 'North',
-            data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
-              min: 10,
-              max: 20
-            })
-          },
-          {
-            name: 'Central',
-            data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
-              min: 10,
-              max: 15
-            })
-          }
+    {
+      name: 'Total Sales',
+      data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
+        min: 10,
+        max: 60
+      })
+    },
+    {
+      name: 'Sales',
+      data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
+        min: 10,
+        max: 20
+      })
+    },
+    {
+      name: 'Fixed Expenses',
+      data: generateDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 20, {
+        min: 10,
+        max: 15
+      })
+    }
   ];
 
   return (
     <div className="w-full">
+      <button className='text-[#144A6C]'>
+        Sales Vs Expense
+      </button>
       <ReactApexChart options={options} series={series} type="area" height={350} />
     </div>
   );
