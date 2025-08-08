@@ -23,6 +23,7 @@ const materialsList: Material[] = [
 ];
 
 const MaterialTable = () => {
+    
     const [rows, setRows] = useState<Row[]>([
         {
             id: Date.now(),
@@ -51,38 +52,77 @@ const MaterialTable = () => {
     };
 
     const handleChange = (
-        index: number,
-        field: keyof Row,
-        value: string
-    ) => {
-        const updatedRows = [...rows];
+  index: number,
+  field: keyof Row,
+  value: string
+) => {
+  const updatedRows = [...rows];
 
-        if (field === 'materialId') {
-            const selectedMaterial = materialsList.find(
-                (material) => material.id.toString() === value
-            );
+  if (field === 'materialId') {
+    const selectedMaterial = materialsList.find(
+      (material) => material.id.toString() === value
+    );
 
-            if (selectedMaterial) {
-                updatedRows[index] = {
-                    ...updatedRows[index],
-                    materialId: selectedMaterial.id.toString(),
-                    uom: selectedMaterial.uom,
-                    amount: selectedMaterial.amount.toString(),
-                };
-            } else {
-                updatedRows[index] = {
-                    ...updatedRows[index],
-                    materialId: '',
-                    uom: '',
-                    amount: '',
-                };
-            }
-        } else {
-            updatedRows[index][field] = value;
-        }
-
-        setRows(updatedRows);
+    if (selectedMaterial) {
+      updatedRows[index] = {
+        ...updatedRows[index],
+        materialId: selectedMaterial.id.toString(),
+        uom: selectedMaterial.uom,
+        amount: selectedMaterial.amount.toString(),
+      };
+    } else {
+      updatedRows[index] = {
+        ...updatedRows[index],
+        materialId: '',
+        uom: '',
+        amount: '',
+      };
+    }
+  } else if (field !== 'id') {
+    updatedRows[index] = {
+      ...updatedRows[index],
+      [field]: value,
     };
+  }
+
+  setRows(updatedRows);
+};
+
+
+
+    // const handleChange = (
+    //     index: number,
+    //     field: keyof Row,
+    //     value: string
+    // ) => {
+    //     const updatedRows = [...rows];
+
+    //     if (field === 'materialId') {
+    //         const selectedMaterial = materialsList.find(
+    //             (material) => material.id.toString() === value
+    //         );
+
+    //         if (selectedMaterial) {
+    //             updatedRows[index] = {
+    //                 ...updatedRows[index],
+    //                 materialId: selectedMaterial.id.toString(),
+    //                 uom: selectedMaterial.uom,
+    //                 amount: selectedMaterial.amount.toString(),
+    //             };
+    //         } else {
+    //             updatedRows[index] = {
+    //                 ...updatedRows[index],
+    //                 materialId: '',
+    //                 uom: '',
+    //                 amount: '',
+    //             };
+    //         }
+    //     } else {
+    //         updatedRows[index][field] = value;
+    //     }
+
+    //     setRows(updatedRows);
+    // };
 
     return (
         <div className="overflow-x-auto">
