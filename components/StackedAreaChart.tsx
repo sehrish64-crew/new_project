@@ -47,7 +47,7 @@ const StackedAreaChart: React.FC = () => {
 
   const options = {
     chart: {
-      type: "area" as ChartType,
+      type: "area",
       height: 350,
       stacked: true,
       events: {
