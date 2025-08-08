@@ -10,7 +10,7 @@ interface AppointmentPickerProps {
 
 export default function AppointmentPicker({ slotsByDate }: AppointmentPickerProps) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+ const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
   const renderHeader = () => (
@@ -90,13 +90,13 @@ export default function AppointmentPicker({ slotsByDate }: AppointmentPickerProp
     const dateStr = format(selectedDate, "yyyy-MM-dd");
     const slots = slotsByDate[dateStr] || [];
 
-    if (slots.length === 0) {
-      return (
-        <div className="mt-4 text-sm text-gray-500">
-          No slots available for this date.
-        </div>
-      );
-    }
+   if (slots.length === 0) {
+  return (
+    <div className="mt-4 text-sm text-gray-500">
+      No slots available for this date.
+    </div>
+  );
+}
 
     return (
       <div className="mt-4">
