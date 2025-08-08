@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import { ApexOptions } from "apexcharts";
+
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -45,42 +47,42 @@ const StackedAreaChart: React.FC = () => {
 
   if (!isClient) return null;
 
-  const options = {
-    chart: {
-      type: "area",
-      height: 350,
-      stacked: true,
-      events: {
-        selection: function (
-          chart: any, // or ApexCharts if imported
-          e: { xaxis: { min: number; max: number } }
-        ) {
-          console.log(new Date(e.xaxis.min));
-        }
+const options: ApexOptions = {
+  chart: {
+    type: "area",
+    height: 350,
+    stacked: true,
+    events: {
+      selection: function (
+        chart,
+        e
+      ) {
+        console.log(new Date(e.xaxis.min));
       }
+    }
+  },
+  colors: ["#144A6C", "#177606", "#EF2D2D"],
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: "smooth",
+  },
+  fill: {
+    type: "gradient",
+    gradient: {
+      opacityFrom: 0.6,
+      opacityTo: 0.8,
     },
-    colors: ['#144A6C', '#177606', '#EF2D2D'],
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      curve: 'smooth',
-    },
-    fill: {
-      type: 'gradient',
-      gradient: {
-        opacityFrom: 0.6,
-        opacityTo: 0.8,
-      },
-    },
-    legend: {
-      position: 'top',
-      horizontalAlign: 'left',
-    },
-    xaxis: {
-      type: 'datetime',
-    },
-  };
+  },
+  legend: {
+    position: "top",
+    horizontalAlign: "left",
+  },
+  xaxis: {
+    type: "datetime",
+  },
+};
 
   const series = [
     {
