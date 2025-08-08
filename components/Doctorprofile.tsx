@@ -3,10 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
-// import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-// import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
+import AppointmentPicker from "../components/AppointmentPicker"
 import Swal from "sweetalert2";
 import { Search, Plus } from "lucide-react";
 import { Listbox } from "@headlessui/react";
@@ -36,7 +33,7 @@ const filteredDoctors = [
     nextVisit: "2025-07-30",
     treatmentRequired: "Blood Test",
   },
- 
+
 ];
 const patients = [
   { id: 1, name: "John Doe" },
@@ -95,7 +92,7 @@ const filteredDoctores = [
     Status: "Ongoing",
   },
 
- 
+
 ];
 
 export default function DoctorProfileTabs() {
@@ -119,11 +116,10 @@ export default function DoctorProfileTabs() {
                 <button
                   key={idx}
                   onClick={() => setSelectedTab(idx)}
-                  className={`clip-path-custom-shape py-3 px-6 text-sm font-medium border-b-2 mb-0 md:-mb-px focus:outline-none  ${
-                    selectedTab === idx
+                  className={`clip-path-custom-shape py-3 px-6 text-sm font-medium border-b-2 mb-0 md:-mb-px focus:outline-none  ${selectedTab === idx
                       ? "border-[#144A6C] text-[#144A6C] bg-[#FFFFFF80]"
                       : "text-gray-500 border-transparent"
-                  }`}
+                    }`}
                 >
                   {tab}
                 </button>
@@ -180,10 +176,9 @@ export default function DoctorProfileTabs() {
                                   <div
                                     className={`inline-block align-bottom bg-white  rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 
                                                 sm:align-middle w-full max-w-4xl mx-auto 
-                                      ${
-                                        ModalAnimation
-                                          ? "scale-100 skew-y-0"
-                                          : "scale-0 skew-y-6"
+                                      ${ModalAnimation
+                                        ? "scale-100 skew-y-0"
+                                        : "scale-0 skew-y-6"
                                       }
                                       duration-500 ease-out
                                     `}
@@ -286,21 +281,19 @@ export default function DoctorProfileTabs() {
                                                             className={({
                                                               active,
                                                             }) =>
-                                                              `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                                                active
-                                                                  ? "bg-[#144A6C] text-white"
-                                                                  : "text-gray-900"
+                                                              `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                                                ? "bg-[#144A6C] text-white"
+                                                                : "text-gray-900"
                                                               }`
                                                             }
                                                           >
                                                             {({ selected }) => (
                                                               <>
                                                                 <span
-                                                                  className={`block truncate ${
-                                                                    selected
+                                                                  className={`block truncate ${selected
                                                                       ? "font-medium"
                                                                       : "font-normal"
-                                                                  }`}
+                                                                    }`}
                                                                 >
                                                                   {patient.name}
                                                                 </span>
@@ -359,21 +352,19 @@ export default function DoctorProfileTabs() {
                                                             className={({
                                                               active,
                                                             }) =>
-                                                              `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                                                active
-                                                                  ? "bg-[#144A6C] text-white"
-                                                                  : "text-gray-900"
+                                                              `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                                                ? "bg-[#144A6C] text-white"
+                                                                : "text-gray-900"
                                                               }`
                                                             }
                                                           >
                                                             {({ selected }) => (
                                                               <>
                                                                 <span
-                                                                  className={`block truncate ${
-                                                                    selected
+                                                                  className={`block truncate ${selected
                                                                       ? "font-medium"
                                                                       : "font-normal"
-                                                                  }`}
+                                                                    }`}
                                                                 >
                                                                   {
                                                                     treatment.name
@@ -432,21 +423,19 @@ export default function DoctorProfileTabs() {
                                                             className={({
                                                               active,
                                                             }) =>
-                                                              `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                                                active
-                                                                  ? "bg-[#144A6C] text-white"
-                                                                  : "text-gray-900"
+                                                              `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                                                ? "bg-[#144A6C] text-white"
+                                                                : "text-gray-900"
                                                               }`
                                                             }
                                                           >
                                                             {({ selected }) => (
                                                               <>
                                                                 <span
-                                                                  className={`block truncate ${
-                                                                    selected
+                                                                  className={`block truncate ${selected
                                                                       ? "font-medium"
                                                                       : "font-normal"
-                                                                  }`}
+                                                                    }`}
                                                                 >
                                                                   {month.name}
                                                                 </span>
@@ -500,21 +489,19 @@ export default function DoctorProfileTabs() {
                                                           className={({
                                                             active,
                                                           }) =>
-                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                                              active
-                                                                ? "bg-[#144A6C] text-white"
-                                                                : "text-gray-900"
+                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active
+                                                              ? "bg-[#144A6C] text-white"
+                                                              : "text-gray-900"
                                                             }`
                                                           }
                                                         >
                                                           {({ selected }) => (
                                                             <>
                                                               <span
-                                                                className={`block truncate ${
-                                                                  selected
+                                                                className={`block truncate ${selected
                                                                     ? "font-medium"
                                                                     : "font-normal"
-                                                                }`}
+                                                                  }`}
                                                               >
                                                                 {slot.name}
                                                               </span>
@@ -547,7 +534,7 @@ export default function DoctorProfileTabs() {
                                             setModalAnimation(false);
                                           }}
                                         >
-                                           Book Appointment
+                                          Book Appointment
                                         </button>
                                         <button
                                           type="button"
@@ -817,30 +804,41 @@ export default function DoctorProfileTabs() {
                     ))}
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                  <div className="bg-white rounded-xl p-6 mt-8">
                     <div>
                       <h3 className="text-[#144A6C] font-semibold mb-2">
                         Availability
                       </h3>
-                      <div className="rounded-xl">
-                        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-                          <DemoContainer components={["StaticDatePicker"]}>
-                            <DemoItem>
-                              <StaticDatePicker
-                                defaultValue={dayjs("2022-04-17")}
-                              />
-                            </DemoItem>
-                          </DemoContainer>
-                        </LocalizationProvider> */}
+                       <AppointmentPicker
+                      slotsByDate={{
+                        "2025-08-10": [
+                          "10:30am",
+                          "11:30am",
+                          "02:30pm",
+                          "03:30pm",
+                          "04:30pm",
+                          "05:30pm"
+                        ],
+                        "2025-08-11": [
+                          "09:00am",
+                          "10:00am",
+                          "01:00pm"
+                        ],
+                      }}
+                    />
+                      {/* <div className="rounded-xl">
                       <input
                     style={{ width: "100%" }}
                     type="text"
                     placeholder="Search"
                     className="text-[#6B7280] pl-10 pr-6 py-2 h-10 rounded-md focus:outline-none focus:[#E6E4F0] w-full sm:w-64 bg-white text-sm border border-[#E6E4F0] focus:border-[#E6E4F0]"
                   />
-                      </div>
+                      </div> */}
                     </div>
-                    <div>
+                   
+
+
+                    {/* <div>
                       <div className="bg-[#F9FAFB] p-5 rounded-xl">
                         <h3 className="text-[#000] font-regular mb-2">
                           Thursday, 10th August
@@ -875,7 +873,7 @@ export default function DoctorProfileTabs() {
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </>
@@ -1121,21 +1119,18 @@ export default function DoctorProfileTabs() {
                               <span
                                 className={`
         inline-flex px-3 py-1 rounded-full text-xs font-medium
-        ${
-          doctor.Status === "Complete"
-            ? "bg-[#F8FFF8] text-[#177606] border border-[#B7EFAB] rounded-sm pl-4 pr-4 pt-2 pb-2"
-            : ""
-        }
-        ${
-          doctor.Status === "Pending"
-            ? "bg-[#F3F3F4] text-[#6E6D6F] border border-[#9C9C9C] rounded-sm pl-4 pr-4 pt-2 pb-2"
-            : ""
-        }
-        ${
-          doctor.Status === "Ongoing"
-            ? "bg-[#FFFEF8] text-[#767306] border border-[#EFEEAB] rounded-sm pl-4 pr-4 pt-2 pb-2"
-            : ""
-        }
+        ${doctor.Status === "Complete"
+                                    ? "bg-[#F8FFF8] text-[#177606] border border-[#B7EFAB] rounded-sm pl-4 pr-4 pt-2 pb-2"
+                                    : ""
+                                  }
+        ${doctor.Status === "Pending"
+                                    ? "bg-[#F3F3F4] text-[#6E6D6F] border border-[#9C9C9C] rounded-sm pl-4 pr-4 pt-2 pb-2"
+                                    : ""
+                                  }
+        ${doctor.Status === "Ongoing"
+                                    ? "bg-[#FFFEF8] text-[#767306] border border-[#EFEEAB] rounded-sm pl-4 pr-4 pt-2 pb-2"
+                                    : ""
+                                  }
       `}
                               >
                                 {doctor.Status}
