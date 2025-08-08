@@ -3,10 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
+// import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import Swal from "sweetalert2";
 import { Search, Plus } from "lucide-react";
 import { Listbox } from "@headlessui/react";
@@ -823,7 +823,7 @@ export default function DoctorProfileTabs() {
                         Availability
                       </h3>
                       <div className="rounded-xl">
-                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                           <DemoContainer components={["StaticDatePicker"]}>
                             <DemoItem>
                               <StaticDatePicker
@@ -831,7 +831,13 @@ export default function DoctorProfileTabs() {
                               />
                             </DemoItem>
                           </DemoContainer>
-                        </LocalizationProvider>
+                        </LocalizationProvider> */}
+                      <input
+                    style={{ width: "100%" }}
+                    type="text"
+                    placeholder="Search"
+                    className="text-[#6B7280] pl-10 pr-6 py-2 h-10 rounded-md focus:outline-none focus:[#E6E4F0] w-full sm:w-64 bg-white text-sm border border-[#E6E4F0] focus:border-[#E6E4F0]"
+                  />
                       </div>
                     </div>
                     <div>
